@@ -360,8 +360,7 @@
   padding: 10px 12px;
   border-radius: 18px;
   background:
-    linear-gradient(180deg, rgba(16, 74, 39, 0.18), rgba(16, 74, 39, 0.08)),
-    radial-gradient(circle at center, rgba(22, 92, 49, 0.42), rgba(22, 92, 49, 0.14) 68%, transparent 100%);
+    linear-gradient(180deg, rgba(0, 191, 255, 0.9), rgba(0, 132, 255, 0.82));
   filter:
     drop-shadow(0 10px 18px rgba(34, 102, 57, 0.06))
     drop-shadow(0 2px 6px rgba(255, 138, 38, 0.04));
