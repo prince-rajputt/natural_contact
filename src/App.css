@@ -70,6 +70,16 @@
   }
 }
 
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%, 0% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%, 200% 50%;
+  }
+}
+
 .page-shell {
   min-height: 100vh;
   min-height: 100svh;
@@ -83,16 +93,16 @@
   --card-bg-bottom: rgba(248, 255, 250, 0.9);
   --card-border: rgba(31, 110, 58, 0.08);
   --card-shadow: rgba(33, 102, 57, 0.1);
-  --card-highlight-top: rgba(255, 201, 95, 0.16);
-  --card-highlight-bottom: rgba(86, 211, 127, 0.12);
+  --card-highlight-top: rgba(255, 173, 82, 0.4);
+  --card-highlight-bottom: rgba(86, 211, 127, 0.24);
   --logo-panel-top: rgba(255, 255, 255, 1);
   --logo-panel-bottom: rgba(251, 255, 252, 0.98);
   --logo-panel-border: rgba(30, 114, 62, 0.08);
   --logo-panel-shadow: rgba(32, 102, 57, 0.1);
-  --logo-panel-inner-top: rgba(255, 154, 77, 0.05);
-  --logo-panel-inner-bottom: rgba(86, 211, 127, 0.06);
+  --logo-panel-inner-top: rgba(255, 154, 77, 0.09);
+  --logo-panel-inner-bottom: rgba(86, 211, 127, 0.1);
   --field-label: #000000;
-  --field-border: rgba(20, 107, 56, 0.12);
+  --field-border: rgba(20, 107, 56, 0.26);
   --field-bg-top: rgba(255, 255, 255, 0.98);
   --field-bg-bottom: rgba(247, 255, 250, 0.9);
   --field-text: #000000;
@@ -125,7 +135,7 @@
   --logo-panel-inner-top: rgba(255, 154, 77, 0.08);
   --logo-panel-inner-bottom: rgba(86, 211, 127, 0.08);
   --field-label: rgba(237, 246, 239, 0.9);
-  --field-border: rgba(255, 255, 255, 0.1);
+  --field-border: rgba(255, 255, 255, 0.18);
   --field-bg-top: rgba(29, 42, 34, 0.98);
   --field-bg-bottom: rgba(18, 28, 22, 0.96);
   --field-text: #f5f7f4;
@@ -218,8 +228,10 @@
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at top center, var(--card-highlight-top), transparent 26%),
-    radial-gradient(circle at bottom center, var(--card-highlight-bottom), transparent 32%);
+    radial-gradient(circle at top center, var(--card-highlight-top), transparent 24%),
+    radial-gradient(circle at bottom center, var(--card-highlight-bottom), transparent 28%),
+    radial-gradient(circle at 84% 76%, rgba(87, 201, 255, 0.26), transparent 22%),
+    radial-gradient(circle at 14% 18%, rgba(255, 192, 84, 0.16), transparent 18%);
 }
 
 .theme-switcher {
@@ -316,7 +328,7 @@
   height: min(38vw, 300px);
   border-radius: 50%;
   background:
-    radial-gradient(circle, rgba(255, 124, 26, 0.22), rgba(255, 124, 26, 0.03) 60%, transparent 72%);
+    radial-gradient(circle, rgba(255, 124, 26, 0.38), rgba(255, 124, 26, 0.09) 56%, transparent 72%);
   filter: blur(8px);
   animation: glowShift 7s ease-in-out infinite;
   z-index: -1;
@@ -331,7 +343,8 @@
   height: min(46vw, 380px);
   border-radius: 50%;
   border: 1px solid rgba(24, 153, 86, 0.08);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 68%);
+  background:
+    radial-gradient(circle, rgba(255, 236, 191, 0.76), rgba(255, 255, 255, 0.24) 52%, transparent 72%);
   transform: translate(-50%, -50%);
   z-index: -2;
 }
@@ -384,8 +397,8 @@
   inset: 8px;
   border-radius: 20px;
   background:
-    radial-gradient(circle at center, rgba(19, 84, 45, 0.12), rgba(19, 84, 45, 0.03) 58%, transparent 76%),
-    linear-gradient(135deg, rgba(255, 247, 237, 0.58), rgba(244, 255, 248, 0.36));
+    radial-gradient(circle at center, rgba(19, 84, 45, 0.15), rgba(19, 84, 45, 0.04) 58%, transparent 76%),
+    linear-gradient(135deg, rgba(255, 243, 227, 0.72), rgba(240, 255, 246, 0.48));
   border: 1px solid rgba(36, 126, 67, 0.08);
   pointer-events: none;
 }
@@ -501,19 +514,37 @@
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--field-label);
+  font-family: Sora, Manrope, sans-serif;
 }
 
 .field input,
 .field textarea {
   width: 100%;
-  border: 1px solid var(--field-border);
+  border: 1.5px solid var(--field-border);
   border-radius: 18px;
   min-height: 54px;
   padding: 0.8rem 0.95rem 0.8rem 1rem;
   color: var(--field-text);
   background:
-    linear-gradient(180deg, var(--field-bg-top), var(--field-bg-bottom));
+    linear-gradient(180deg, var(--field-bg-top), var(--field-bg-bottom)) padding-box,
+    linear-gradient(
+      120deg,
+      rgba(255, 148, 62, 0.95),
+      rgba(255, 214, 91, 0.9),
+      rgba(95, 224, 132, 0.95),
+      rgba(92, 201, 255, 0.92),
+      rgba(255, 148, 62, 0.95)
+    ) border-box;
+  background-size: 100% 100%, 220% 220%;
+  background-position: 0 0, 0% 50%;
+  background-repeat: no-repeat;
   outline: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+    0 0 0 1px rgba(255, 186, 111, 0.14),
+    0 6px 18px rgba(30, 96, 53, 0.06),
+    0 0 18px rgba(255, 177, 82, 0.1);
+  animation: borderFlow 5s linear infinite;
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease,
@@ -538,7 +569,8 @@
   border-color: rgba(255, 171, 75, 0.85);
   box-shadow:
     0 0 0 4px rgba(255, 133, 40, 0.12),
-    0 16px 40px var(--field-focus-shadow);
+    0 16px 40px var(--field-focus-shadow),
+    0 0 26px rgba(255, 177, 82, 0.24);
   transform: translateY(-1px);
 }
 
@@ -562,11 +594,12 @@
   font-size: 1.2rem;
   font-weight: 800;
   letter-spacing: 0.02em;
+  font-family: Sora, Manrope, sans-serif;
   color: #0d160f;
   background: linear-gradient(135deg, #ff8a26 0%, #ffc95f 42%, #56d37f 100%);
   box-shadow:
-    0 18px 36px rgba(255, 126, 29, 0.28),
-    0 0 24px rgba(86, 211, 127, 0.22);
+    0 18px 36px rgba(255, 126, 29, 0.34),
+    0 0 28px rgba(86, 211, 127, 0.26);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -625,6 +658,10 @@
   border: 1px solid rgba(86, 211, 127, 0.25);
   color: #1b6f3d;
   font-size: 1.15rem;
+}
+
+.theme-switcher__button {
+  font-family: Sora, Manrope, sans-serif;
 }
 
 .icon-pos-1 {
