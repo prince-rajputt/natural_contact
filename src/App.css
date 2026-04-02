@@ -93,8 +93,8 @@
   --card-bg-bottom: rgba(248, 255, 250, 0.9);
   --card-border: rgba(31, 110, 58, 0.08);
   --card-shadow: rgba(33, 102, 57, 0.1);
-  --card-highlight-top: rgba(255, 173, 82, 0.4);
-  --card-highlight-bottom: rgba(86, 211, 127, 0.24);
+  --card-highlight-top: rgba(255, 164, 36, 0.62);
+  --card-highlight-bottom: rgba(86, 211, 127, 0.42);
   --logo-panel-top: rgba(255, 255, 255, 1);
   --logo-panel-bottom: rgba(251, 255, 252, 0.98);
   --logo-panel-border: rgba(30, 114, 62, 0.08);
@@ -201,7 +201,7 @@
 }
 
 .contact-layout {
-  width: min(920px, 100%);
+  width: min(1180px, calc(100% - 32px));
   height: calc(100vh - 32px);
   height: calc(100svh - 32px);
   max-height: 1888px;
@@ -230,8 +230,10 @@
   background:
     radial-gradient(circle at top center, var(--card-highlight-top), transparent 24%),
     radial-gradient(circle at bottom center, var(--card-highlight-bottom), transparent 28%),
-    radial-gradient(circle at 84% 76%, rgba(87, 201, 255, 0.26), transparent 22%),
-    radial-gradient(circle at 14% 18%, rgba(255, 192, 84, 0.16), transparent 18%);
+    radial-gradient(circle at 84% 76%, rgba(45, 193, 255, 0.44), transparent 22%),
+    radial-gradient(circle at 14% 18%, rgba(255, 192, 84, 0.32), transparent 18%),
+    radial-gradient(circle at 22% 88%, rgba(118, 255, 173, 0.26), transparent 18%),
+    radial-gradient(circle at 70% 24%, rgba(255, 157, 94, 0.2), transparent 16%);
 }
 
 .theme-switcher {
@@ -328,7 +330,7 @@
   height: min(38vw, 300px);
   border-radius: 50%;
   background:
-    radial-gradient(circle, rgba(255, 124, 26, 0.38), rgba(255, 124, 26, 0.09) 56%, transparent 72%);
+    radial-gradient(circle, rgba(255, 124, 26, 0.76), rgba(255, 124, 26, 0.22) 56%, transparent 72%);
   filter: blur(8px);
   animation: glowShift 7s ease-in-out infinite;
   z-index: -1;
@@ -344,21 +346,22 @@
   border-radius: 50%;
   border: 1px solid rgba(24, 153, 86, 0.08);
   background:
-    radial-gradient(circle, rgba(255, 236, 191, 0.76), rgba(255, 255, 255, 0.24) 52%, transparent 72%);
+    radial-gradient(circle, rgba(255, 222, 109, 1), rgba(255, 255, 255, 0.32) 52%, transparent 72%);
   transform: translate(-50%, -50%);
   z-index: -2;
 }
 
 .brand-panel__logo {
   width: min(100%, 100%);
-  max-width: 430px;
-  max-height: 150px;
+  max-width: 620px;
+  max-height: 240px;
   object-fit: contain;
   display: block;
   padding: 10px 12px;
   border-radius: 18px;
   background:
-    radial-gradient(circle at center, rgba(22, 92, 49, 0.18), rgba(22, 92, 49, 0.05) 68%, transparent 100%);
+    linear-gradient(180deg, rgba(16, 74, 39, 0.18), rgba(16, 74, 39, 0.08)),
+    radial-gradient(circle at center, rgba(22, 92, 49, 0.42), rgba(22, 92, 49, 0.14) 68%, transparent 100%);
   filter:
     drop-shadow(0 10px 18px rgba(34, 102, 57, 0.06))
     drop-shadow(0 2px 6px rgba(255, 138, 38, 0.04));
@@ -369,7 +372,7 @@
 
 .logo-stage {
   position: relative;
-  width: min(100%, 520px);
+  width: min(100%, 620px);
   height: 100%;
   min-height: clamp(150px, 18vh, 230px);
   display: flex;
@@ -380,9 +383,9 @@
 
 .logo-stage__panel {
   position: relative;
-  width: min(100%, 500px);
-  padding: 12px 18px;
-  border-radius: 28px;
+  width: min(100%, 620px);
+  padding: 14px 20px;
+  border-radius: 32px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(250, 252, 250, 0.995));
   border: 1px solid var(--logo-panel-border);
@@ -397,9 +400,9 @@
   inset: 8px;
   border-radius: 20px;
   background:
-    radial-gradient(circle at center, rgba(19, 84, 45, 0.15), rgba(19, 84, 45, 0.04) 58%, transparent 76%),
-    linear-gradient(135deg, rgba(255, 243, 227, 0.72), rgba(240, 255, 246, 0.48));
-  border: 1px solid rgba(36, 126, 67, 0.08);
+    radial-gradient(circle at center, rgba(19, 84, 45, 0.12), rgba(19, 84, 45, 0.03) 58%, transparent 76%),
+    linear-gradient(135deg, rgba(255, 248, 236, 0.64), rgba(243, 255, 248, 0.4));
+  border: 1px solid rgba(36, 126, 67, 0.1);
   pointer-events: none;
 }
 
@@ -710,15 +713,17 @@
   }
 
   .floating-hero__content {
-    width: min(900px, 100%);
+    width: min(1080px, calc(100% - 24px));
+    margin-inline: auto;
   }
 
   .contact-layout {
-    width: min(900px, 100%);
+    width: min(1080px, calc(100% - 24px));
     height: calc(100svh - 116px);
     max-height: 1700px;
     border-radius: 40px;
     justify-content: flex-start;
+    margin-inline: auto;
   }
 
   .theme-switcher {
@@ -759,16 +764,16 @@
   }
 
   .logo-stage__panel {
-    width: min(100%, 600px);
-    padding: 16px 18px;
-    border-radius: 30px;
+    width: min(100%, 660px);
+    padding: 18px 20px;
+    border-radius: 32px;
   }
 
   .brand-panel__logo {
-    max-width: 500px;
-    max-height: 165px;
-    padding: 12px 14px;
-    border-radius: 20px;
+    max-width: 600px;
+    max-height: 220px;
+    padding: 14px 16px;
+    border-radius: 22px;
   }
 
   .form-panel {
@@ -784,9 +789,9 @@
   }
 
   .contact-form {
-    max-width: 760px;
+    max-width: 940px;
     margin-inline: auto;
-    padding-inline: 10px;
+    padding-inline: 0;
     gap: 18px 18px;
     align-content: start;
   }
